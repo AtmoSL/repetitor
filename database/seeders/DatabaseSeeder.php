@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Landing\FeedBack\LandingFeedBack;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +22,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(LandingFeedBackClassSeeder::class);
+        $this->call(LandingFeedBackFormatSeeder::class);
+        $this->call(LandingFeedBackStatusSeeder::class);
+        $this->call(LandingFeedBackTargetSeeder::class);
+        $this->call(LandingFeedBackSubjectSeeder::class);
+        LandingFeedBack::factory(10)->create();
     }
 }
