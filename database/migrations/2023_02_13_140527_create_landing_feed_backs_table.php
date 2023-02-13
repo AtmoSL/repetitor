@@ -27,6 +27,8 @@ return new class extends Migration
             $table->foreignId('status_id')->constrained('landing_feed_back_statuses');
 
             $table->timestamps();
+            
+            $table->softDeletes();
         });
     }
 

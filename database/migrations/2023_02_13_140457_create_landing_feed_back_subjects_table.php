@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('landing_feed_back_subjects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            
+            $table->softDeletes();
         });
     }
 
