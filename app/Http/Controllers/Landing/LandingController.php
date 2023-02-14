@@ -14,7 +14,7 @@ class LandingController extends BaseLadningController
      */
     public function index()
     {
-        dd(__METHOD__);
+        return view('landing.index');
     }
 
     /**
