@@ -30,7 +30,7 @@ Route::group($groupData, function () {
 
     //Категории
     $methods = ['index', 'update',];
-    Route::resource('/feedback', "LandingFeedBackAdminController")
+    Route::resource('/feedbacks', "LandingFeedBackAdminController")
         ->only($methods);
 });
 

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Admin\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\Landing\FeedBack\LandingFeedBack;
+use App\Models\Landing\FeedBack\LandingFeedBackClass;
+use App\Models\Landing\FeedBack\LandingFeedBackFormat;
+use App\Models\Landing\FeedBack\LandingFeedBackStatus;
+use App\Models\Landing\FeedBack\LandingFeedBackSubject;
+use App\Models\Landing\FeedBack\LandingFeedBackTarget;
 use Illuminate\Http\Request;
 
 class LandingFeedBackAdminController extends Controller
@@ -14,7 +20,15 @@ class LandingFeedBackAdminController extends Controller
      */
     public function index()
     {
-        dd(__METHOD__);
+        $feedBacks = LandingFeedBack::paginate(5);
+        $classes = LandingFeedBackClass::all();
+        $subjects = LandingFeedBackSubject::all();
+        $targets = LandingFeedBackTarget::all();
+        $formats = LandingFeedBackFormat::all();
+        $statuses = LandingFeedBackStatus::all();
+
+        return view('admin.landing.feedback.index', compact('feedBacks','classes','subjects','targets','formats', 'statuses'));
+
     }
 
     /**
