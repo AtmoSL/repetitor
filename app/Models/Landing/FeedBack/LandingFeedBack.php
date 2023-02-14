@@ -10,4 +10,15 @@ class LandingFeedBack extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+
+    protected $fillable = [
+        'name',
+        'class_id',
+        'subject_id',
+        'target_id',
+        'contacts',
+        'format_id',
+        'status_id',
+    ];
 }

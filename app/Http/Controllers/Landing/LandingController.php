@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\Landing\FeedBack\LandingFeedBack;
+use App\Models\Landing\FeedBack\LandingFeedBackClass;
+use App\Models\Landing\FeedBack\LandingFeedBackFormat;
+use App\Models\Landing\FeedBack\LandingFeedBackSubject;
+use App\Models\Landing\FeedBack\LandingFeedBackTarget;
 use Illuminate\Http\Request;
 
 class LandingController extends BaseLadningController
@@ -14,7 +19,14 @@ class LandingController extends BaseLadningController
      */
     public function index()
     {
-        return view('landing.index');
+        
+        $feedBack = new LandingFeedBack();
+        $classList = LandingFeedBackClass::all();
+        $subjectList = LandingFeedBackSubject::all();
+        $targetList = LandingFeedBackTarget::all();
+        $formatList = LandingFeedBackFormat::all();
+
+        return view('landing.index', compact('feedBack','classList','subjectList','targetList','formatList'));
     }
 
     /**
@@ -24,7 +36,7 @@ class LandingController extends BaseLadningController
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +47,20 @@ class LandingController extends BaseLadningController
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->input();
+        
+        $item = new LandingFeedBack($data);
+        $item->save();
+
+        if ($item) {
+            return redirect()
+                ->route('index')
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Ошибка сохранения"])
+                ->withInput();
+        }
     }
 
     /**
