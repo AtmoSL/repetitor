@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Landing\Admin;
+namespace App\Http\Controllers\Admin\Landing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LandingAdminController extends Controller
+class LandingFeedBackAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class LandingAdminController extends Controller
      */
     public function index()
     {
-        //
+        dd(__METHOD__);
     }
 
     /**

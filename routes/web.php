@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Landing\LandingAdminController;
 use App\Http\Controllers\Landing\LandingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/',LandingController::class);
+
+
+//Админка лендинга 
+$groupData = [
+    'namespace' => 'App\Http\Controllers\Admin\Landing',
+    'prefix' => 'admin/landing',
+];
+
+//Пути для админки
+Route::group($groupData, function () {
+
+    //Категории
+    $methods = ['index', 'update',];
+    Route::resource('/feedback', "LandingFeedBackAdminController")
+        ->only($methods);
+});
 
 Auth::routes();
 
