@@ -31,7 +31,8 @@ Route::group($groupData, function () {
     //Категории
     $methods = ['index', 'update',];
     Route::resource('/feedbacks', "LandingFeedBackAdminController")
-        ->only($methods);
+        ->only($methods)
+        ->names('admin.landing.feedbacks');
 });
 
 Auth::routes();
