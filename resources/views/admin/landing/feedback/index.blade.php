@@ -9,6 +9,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
+                @include('admin.landing.feedback.result_messages')
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Заявки</h1>
@@ -20,6 +21,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>Дата создания</th>
                                         <th>Имя</th>
                                         <th>Класс</th>
                                         <th>Предмет</th>
@@ -31,6 +33,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>Дата создания</th>
                                         <th>Имя</th>
                                         <th>Класс</th>
                                         <th>Предмет</th>
@@ -43,13 +46,32 @@
                                 <tbody>
                                     @foreach ($feedBacks as $feedBack)
                                         <tr>
-                                            <td>{{ $feedBack->name }}</td>
-                                            <td>{{ $feedBack->class->title }}</td>
-                                            <td>{{ $feedBack->subject->title }}</td>
-                                            <td>{{ $feedBack->target->title }}</td>
-                                            <td>{{ $feedBack->contacts }}</td>
-                                            <td>{{ $feedBack->format->title }}</td>
-                                            <td>{{ $feedBack->status->title }}</td>
+                                            <form method="POST"
+                                                action="{{ route('admin.landing.feedbacks.update', $feedBack->id) }}">
+                                                @method('PATCH')
+                                                @csrf
+                                                <td>{{ \Carbon\Carbon::parse($feedBack->created_at)->format('d.M H:i') }}
+                                                </td>
+                                                <td>{{ $feedBack->name }}</td>
+                                                <td>{{ $feedBack->class->title }}</td>
+                                                <td>{{ $feedBack->subject->title }}</td>
+                                                <td>{{ $feedBack->target->title }}</td>
+                                                <td>{{ $feedBack->contacts }}</td>
+                                                <td>{{ $feedBack->format->title }}</td>
+                                                <td>
+                                                    <select name="status_id" class="form-control" placeholder="Статус"
+                                                        id="status_id" required>
+                                                        @foreach ($statusList as $statusOption)
+                                                            <option value="{{ $statusOption->id }}" {{($statusOption->id == $feedBack->status->id) ? "selected":"" }}>
+                                                                {{ $statusOption->title }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                                                </td>
+                                            </form>
                                         </tr>
                                     @endforeach
                                 </tbody>

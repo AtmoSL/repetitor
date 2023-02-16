@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\LandingFeedBackRepository;
+use App\Models\Landing\FeedBack\LandingFeedBack;
+use App\Models\Landing\FeedBack\LandingFeedBackStatus;
 use Illuminate\Http\Request;
 
 class LandingFeedBackAdminController extends Controller
@@ -24,8 +26,9 @@ class LandingFeedBackAdminController extends Controller
     public function index()
     {
         $feedBacks = $this->landingFeedBackRepository->getAllWithPaginate(8);
+        $statusList = LandingFeedBackStatus::all();
 
-        return view('admin.landing.feedback.index', compact('feedBacks'));
+        return view('admin.landing.feedback.index', compact('feedBacks', 'statusList'));
 
     }
 
@@ -47,7 +50,7 @@ class LandingFeedBackAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -58,7 +61,7 @@ class LandingFeedBackAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -69,7 +72,7 @@ class LandingFeedBackAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -81,7 +84,21 @@ class LandingFeedBackAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd(__METHOD__);
+        $item = LandingFeedBack::find($id);
+        $data = $request->all();
+
+        $result = $item->update($data);
+
+        if ($result) {
+            return redirect()
+                ->route('admin.landing.feedbacks.index')
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Ошибка сохранения"])
+                ->withInput();
+        }
     }
 
     /**
@@ -92,6 +109,6 @@ class LandingFeedBackAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd(__METHOD__);
     }
 }

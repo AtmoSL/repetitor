@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('store') }}">\
+    <form method="POST" action="{{ route('store') }}">
         @csrf
         <div class="container">
             @include('landing.result_messages')
