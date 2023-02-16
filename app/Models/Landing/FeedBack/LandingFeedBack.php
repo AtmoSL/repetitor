@@ -21,4 +21,29 @@ class LandingFeedBack extends Model
         'format_id',
         'status_id',
     ];
+
+    public function class()
+    {
+        return $this->belongsTo(LandingFeedBackClass::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(LandingFeedBackSubject::class);
+    }
+
+    public function target()
+    {
+        return $this->belongsTo(LandingFeedBackTarget::class);
+    }
+
+    public function format()
+    {
+        return $this->belongsTo(LandingFeedBackFormat::class);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(LandingFeedBackStatus::class);
+    }
 }

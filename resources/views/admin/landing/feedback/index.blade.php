@@ -44,12 +44,12 @@
                                     @foreach ($feedBacks as $feedBack)
                                         <tr>
                                             <td>{{ $feedBack->name }}</td>
-                                            <td>{{ $feedBack->class_id }}</td>
-                                            <td>{{ $feedBack->subject_id }}</td>
-                                            <td>{{ $feedBack->target_id }}</td>
+                                            <td>{{ $feedBack->class->title }}</td>
+                                            <td>{{ $feedBack->subject->title }}</td>
+                                            <td>{{ $feedBack->target->title }}</td>
                                             <td>{{ $feedBack->contacts }}</td>
-                                            <td>{{ $feedBack->format_id }}</td>
-                                            <td>{{ $feedBack->status_id }}</td>
+                                            <td>{{ $feedBack->format->title }}</td>
+                                            <td>{{ $feedBack->status->title }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
