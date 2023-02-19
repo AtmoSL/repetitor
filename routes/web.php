@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/',LandingController::class);
+Route::resource('/', LandingController::class);
 
 
 //Админка лендинга 
@@ -28,11 +28,17 @@ $groupData = [
 //Пути для админки
 Route::group($groupData, function () {
 
-    //Категории
-    $methods = ['index', 'update',];
+    //Заявки
+    $feedbacks_methods = ['index', 'update',];
     Route::resource('/feedbacks', "LandingFeedBackAdminController")
-        ->only($methods)
+        ->only($feedbacks_methods)
         ->names('admin.landing.feedbacks');
+
+    //Отзывы
+    $reviews_methods = ['index', 'update',];
+    Route::resource('/reviews', "LandingReviewAdminController")
+        ->only($reviews_methods)
+        ->names('admin.landing.reviews');
 });
 
 Auth::routes();

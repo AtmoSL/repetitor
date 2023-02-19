@@ -41,6 +41,11 @@
                             <a class="nav-link" href="{{ route('admin.landing.feedbacks.index') }}">Заявки</a>
                         </li>
 
+                        {{-- Страница отзывов --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.landing.reviews.index') }}">Отзывы</a>
+                        </li>
+
                         {{-- Страница лендинга --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('index') }}">Лендинг</a>

@@ -26,7 +26,7 @@
                                 <p class="mb-0 pb-3">
                                     Класс: {{ $review->class }}
                                     </br>
-                                    Предмет: {{ $review->subject->title }}
+                                    Предмет: {{ $review->subject->title}}
                                     </br>
                                     {{ $review->text }}
                                 </p>

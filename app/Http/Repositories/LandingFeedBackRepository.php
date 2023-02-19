@@ -16,7 +16,7 @@ class LandingFeedBackRepository extends CoreRepository{
     {
         $result = $this
         ->startCondition()
-        ->select('*') //Беру все поля
+        ->select('*') //Все поля
         ->orderBy('id','DESC') //Сначала новые
         ->with(['class',
                 'format', 
