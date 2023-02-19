@@ -3,15 +3,24 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\LandingReviewRepository;
 use App\Models\Landing\FeedBack\LandingFeedBack;
 use App\Models\Landing\FeedBack\LandingFeedBackClass;
 use App\Models\Landing\FeedBack\LandingFeedBackFormat;
 use App\Models\Landing\FeedBack\LandingFeedBackSubject;
 use App\Models\Landing\FeedBack\LandingFeedBackTarget;
+use App\Models\Landing\LandingReview;
 use Illuminate\Http\Request;
 
 class LandingController extends BaseLadningController
 {
+    
+    private $landingReviewRepository;
+
+    public function __construct()
+    {
+        $this->landingReviewRepository = app(LandingReviewRepository::class);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +35,9 @@ class LandingController extends BaseLadningController
         $targetList = LandingFeedBackTarget::all();
         $formatList = LandingFeedBackFormat::all();
 
-        return view('landing.index', compact('feedBack','classList','subjectList','targetList','formatList'));
+        $reviews = $this->landingReviewRepository->getAllForCarousel();
+
+        return view('landing.index', compact('feedBack','classList','subjectList','targetList','formatList', 'reviews'));
     }
 
     /**

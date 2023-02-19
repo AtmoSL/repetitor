@@ -10,6 +10,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
 
+                @include('landing.reviews')
+
 
                     <div class="row justify-content-center">
                         <div class="col-md-12">
