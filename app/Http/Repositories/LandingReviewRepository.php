@@ -13,13 +13,15 @@ class LandingReviewRepository extends CoreRepository{
     public function getAllForCarousel()
     {
 
-        //ToDo Сделать нормальную выборку полей и ограничение, чтобы вытаскивались только публикующиеся поля    .
+        //ToDo Сделать нормальную выборку полей
 
         $result = $this
         ->startCondition()
         ->select('*') //Беру все поля
+        ->where('is_published', '=', '1') //Только опубликованные
         ->orderBy('id','DESC') //Сначала новые
         ->with(['subject']) //Берём всю информацию из связанных таблиц
+        ->limit(5) //Максимум 5 отзывов
         ->get();
 
         return $result;
@@ -27,9 +29,6 @@ class LandingReviewRepository extends CoreRepository{
 
     public function getAllWithPaginate($items)
     {
-
-        //ToDo Сделать нормальную выборку полей и ограничение, чтобы вытаскивались только публикующиеся поля и вынести это в отдельный метод.
-
         $result = $this
         ->startCondition()
         ->select('*') //Беру все поля
