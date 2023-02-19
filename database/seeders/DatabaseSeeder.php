@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Landing\FeedBack\LandingFeedBack;
+use App\Models\Landing\LandingReview;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,5 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LandingFeedBackTargetSeeder::class);
         $this->call(LandingFeedBackSubjectSeeder::class);
         LandingFeedBack::factory(10)->create();
+        LandingReview::factory(5)->create();
     }
 }
