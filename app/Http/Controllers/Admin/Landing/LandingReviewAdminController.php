@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\LandingFeedBackSubjectRepository;
 use App\Http\Repositories\LandingReviewRepository;
+use App\Models\Landing\LandingReview;
 use Illuminate\Http\Request;
 
 class LandingReviewAdminController extends Controller
 {
     
     private $landingReviewRepository;
+    private $landingFeedbackSubjectRepository;
 
     public function __construct()
     {
         $this->landingReviewRepository = app(LandingReviewRepository::class);
+        $this->landingFeedbackSubjectRepository = app(LandingFeedBackSubjectRepository::class);
     }
     /**
      * Display a listing of the resource.
@@ -66,7 +70,10 @@ class LandingReviewAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = LandingReview::find($id);
+        $subjects = $this->landingFeedbackSubjectRepository->getAllForSelect();
+
+        return view('admin.landing.reviews.edit', compact('review', 'subjects'));
     }
 
     /**

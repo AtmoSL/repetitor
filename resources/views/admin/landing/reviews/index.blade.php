@@ -28,6 +28,12 @@
                                         <th>Предмет</th>
                                         <th>Текст</th>
                                         <th>Статус публликаци</th>
+                                        <th>
+                                            <div class="d-grid gap-2">
+                                                <a href="{{ route('admin.landing.reviews.create') }}"
+                                                    class="btn btn-primary">Добавить</a>
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -44,15 +50,17 @@
                                 <tbody>
                                     @foreach ($reviews as $review)
                                         <tr>
-                                                <td>{{ $review->id }}</td>
-                                                <td><img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
-                                                    class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar" width="150"
-                                                    height="150" /></td>
-                                                <td>{{ $review->name }}</td>
-                                                <td>{{ $review->class }}</td>
-                                                <td>{{ $review->subject->title }}</td>
-                                                <td>{{ $review->text }}</td></td>
-                                                <td>{{ $review->is_published }}</td></td>
+                                            <td>{{ $review->id }}</td>
+                                            <td><img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
+                                                    class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar"
+                                                    width="150" height="150" /></td>
+                                            <td>{{ $review->name }}</td>
+                                            <td>{{ $review->class }}</td>
+                                            <td>{{ $review->subject->title }}</td>
+                                            <td>{{ $review->text }}</td>
+                                            <td>{{ $review->is_published }}</td>
+                                            <td><a href="{{ route('admin.landing.reviews.edit', $review->id) }}"
+                                                    class="btn btn-primary">Редактировать</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
