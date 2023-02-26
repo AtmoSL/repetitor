@@ -52,7 +52,26 @@ class LandingReviewAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $file = Storage::putFile('public/img/reviews', $request->photo);
+
+        $data['photo_path'] = $request->photo->hashName();
+
+        $review = new LandingReview($data);
+
+        $review->save();
+
+        if ($review) {
+            return redirect()
+                ->route('admin.landing.reviews.edit', $review->id)
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Ошибка сохранения"])
+                ->withInput();
+        }
+        
     }
 
     /**
@@ -111,8 +130,6 @@ class LandingReviewAdminController extends Controller
 
             $data['photo_path'] = $request->photo->hashName();
         }
-
-
 
         $result = $review->update($data);
 

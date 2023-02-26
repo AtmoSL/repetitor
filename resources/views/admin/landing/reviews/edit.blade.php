@@ -25,13 +25,13 @@
                                         <div class="form__group mb-3">
                                             <label for="name" class="form-label">Имя</label>
                                             <input type="name" class="form-control" id="name"
-                                                aria-describedby="name" value="{{ $review->name }}">
+                                                aria-describedby="name" name="name" value="{{ $review->name }}">
                                         </div>
 
                                         <div class="form__group mb-3">
                                             <label for="class" class="form-label">Класс</label>
                                             <input type="class" class="form-control" id="class"
-                                                aria-describedby="class" value="{{ $review->class }}">
+                                                aria-describedby="class" name="class" value="{{ $review->class }}">
                                         </div>
 
                                         <div class="form__group mb-3">
@@ -48,7 +48,7 @@
 
                                         <div class="form__group mb-3">
                                             <label for="text" class="form-label">Текст</label>
-                                            <textarea type="text" class="form-control" id="text" aria-describedby="text">{{ $review->text }}</textarea>
+                                            <textarea type="text" name="text" class="form-control" id="text" aria-describedby="text">{{ $review->text }}</textarea>
                                         </div>
 
 

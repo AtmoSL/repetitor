@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->text('text');
 
-            $table->boolean('is_published');
+            $table->boolean('is_published')->default(0);
 
             $table->foreignId('subject_id')->constrained('landing_feed_back_subjects');
             $table->timestamps();

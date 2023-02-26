@@ -24,13 +24,13 @@
                                         <div class="form__group mb-3">
                                             <label for="name" class="form-label">Имя</label>
                                             <input type="name" class="form-control" id="name"
-                                                aria-describedby="name" value="{{ $review->name }}">
+                                                aria-describedby="name" value="{{ $review->name }}" name="name">
                                         </div>
 
                                         <div class="form__group mb-3">
                                             <label for="class" class="form-label">Класс</label>
                                             <input type="class" class="form-control" id="class"
-                                                aria-describedby="class" value="{{ $review->class }}">
+                                                aria-describedby="class" value="{{ $review->class }}" name="class">
                                         </div>
 
                                         <div class="form__group mb-3">
@@ -46,7 +46,7 @@
 
                                         <div class="form__group mb-3">
                                             <label for="text" class="form-label">Текст</label>
-                                            <textarea type="text" class="form-control" id="text" aria-describedby="text">{{ $review->text }}</textarea>
+                                            <textarea type="text" class="form-control" name="text" id="text" aria-describedby="text">{{ $review->text }}</textarea>
                                         </div>
 
 
@@ -64,7 +64,7 @@
                                         </div>
 
                                         <div class="form__group mb-3">
-                                            <input class="form-check-input" type="checkbox" value="" id="is_published"
+                                            <input class="form-check-input" type="checkbox" value="1" id="is_published"
                                                 name="is_published">
                                             <label class="form-check-label" for="is_published">
                                                 Опубликовать
