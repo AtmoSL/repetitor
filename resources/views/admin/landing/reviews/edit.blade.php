@@ -72,12 +72,16 @@
                                         </div>
 
                                         <div class="form__group mb-3">
-                                            <input class="form-check-input" type="checkbox" name="is_published"
-                                                value="" id="is_published"
-                                                {{ $review->is_published ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="is_published">
-                                                Опубликовано
-                                            </label>
+                                            <label for="is_published" class="form-label">Статус публикации</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                name="is_published">
+                                                <option value="1"
+                                                    {{ $review->is_published ? 'selected' : '' }}>
+                                                    Опубликовано</option>
+                                                <option value="0"
+                                                    {{ !$review->is_published ? 'selected' : '' }}>
+                                                    Не опубликовано</option>
+                                            </select>
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-sm-9 d-grid gap-2">
