@@ -99,7 +99,9 @@ class LandingReviewAdminController extends Controller
         if($request->photo){
             $file = Storage::putFile('public/img/reviews', $request->photo);
             if($file){
-                echo('Файл сохранён');
+                
+                Storage::delete('public/img/reviews/'.$review->photo_path);
+
             } else {
                 echo('Файл не сохранён');
             }
@@ -111,11 +113,9 @@ class LandingReviewAdminController extends Controller
 
         $result = $review->update($data);
 
-        dd($request->photo_path);
-
         if ($result) {
             return redirect()
-                ->route('blog.admin.categories.edit', $review->id)
+                ->route('admin.landing.reviews.edit', $review->id)
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
