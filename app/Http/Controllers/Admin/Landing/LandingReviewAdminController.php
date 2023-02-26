@@ -93,9 +93,8 @@ class LandingReviewAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(LandingReview $review)
     {
-        $review = LandingReview::find($id);
         $subjects = $this->landingFeedbackSubjectRepository->getAllForSelect();
 
         return view('admin.landing.reviews.edit', compact('review', 'subjects'));
@@ -108,12 +107,11 @@ class LandingReviewAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(LandingReviewUpdateRequest $request, $id)
+    public function update(LandingReviewUpdateRequest $request, LandingReview $review)
     {
-        $review = LandingReview::find($id);
         if (empty($review)) {
             return back()
-                ->withErrors(['msg' => "Запись id=[{$id}] не найдена"])
+                ->withErrors(['msg' => "Запись id=[{$review->id}] не найдена"])
                 ->withInput();
         }
 

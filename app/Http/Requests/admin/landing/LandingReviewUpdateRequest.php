@@ -24,11 +24,11 @@ class LandingReviewUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|min:2|max:20',
+            'name'          => 'required|min:2|max:50',
             'class'         => 'required|integer|min:1|max:11',
             'text'          => 'required|max:500',
             'subject_id'    => 'required|integer|exists:landing_feed_back_subjects,id',
-            'photo_path'    => 'required|max:500',
+            'photo'         => 'dimensions:min_width=100,min_height=100',
             'is_published'  => 'required|min:0|max:1',
         ];
     }

@@ -52,7 +52,7 @@
                                         <tr>
                                             <td>{{ $review->id }}</td>
                                             <td><img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
-                                                    class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar"
+                                                    class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="$review->photo_path"
                                                     width="150" height="150" /></td>
                                             <td>{{ $review->name }}</td>
                                             <td>{{ $review->class }}</td>
