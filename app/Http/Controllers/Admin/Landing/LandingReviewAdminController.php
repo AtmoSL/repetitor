@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Landing;
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\LandingFeedBackSubjectRepository;
 use App\Http\Repositories\LandingReviewRepository;
+use App\Http\Requests\Admin\Landing\LandingReviewCreateRequest;
+use App\Http\Requests\Admin\Landing\LandingReviewUpdateRequest;
 use App\Models\Landing\LandingReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +52,7 @@ class LandingReviewAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LandingReviewCreateRequest $request)
     {
         $data = $request->all();
 
@@ -106,7 +108,7 @@ class LandingReviewAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LandingReviewUpdateRequest $request, $id)
     {
         $review = LandingReview::find($id);
         if (empty($review)) {
