@@ -18,7 +18,7 @@
                                     <h1 class="h3 mb-2 text-gray-800">Редактированние отзыва</h1>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('admin.landing.reviews.update', $review->id) }}">
+                                    <form method="POST" action="{{ route('admin.landing.reviews.update', $review->id) }}" enctype="multipart/form-data">
                                         @method('PATCH')
                                         @csrf
                                         <div class="form__group mb-3">
@@ -61,9 +61,9 @@
                                                 </div>
                                                 <div class="col align-self-end">
                                                     <div class="review__file">
-                                                        <label for="photo_path" class="form-label">Изменить
+                                                        <label for="photo" class="form-label">Изменить
                                                             изображение</label>
-                                                        <input class="form-control" type="file" id="photo_path">
+                                                        <input class="form-control" type="file" id="photo" name="photo">
                                                     </div>
                                                 </div>
                                             </div>

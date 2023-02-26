@@ -12,8 +12,18 @@ class LandingReview extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'class',
+        'subject_id',
+        'photo_path',
+        'text',
+        'is_published'
+    ];
+
     public function subject()
     {
         return $this->belongsTo(LandingFeedBackSubject::class);
+        
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Repositories\LandingFeedBackSubjectRepository;
 use App\Http\Repositories\LandingReviewRepository;
 use App\Models\Landing\LandingReview;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LandingReviewAdminController extends Controller
 {
@@ -85,7 +86,45 @@ class LandingReviewAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $review = LandingReview::find($id);
+        if (empty($review)) {
+            return back()
+                ->withErrors(['msg' => "Запись id=[{$id}] не найдена"])
+                ->withInput();
+        }
+
+        $data = $request->all();
+        
+        if($request->photo){
+            $file = Storage::putFile('public/img/reviews', $request->photo);
+            if($file){
+                echo('Файл сохранён');
+            } else {
+                echo('Файл не сохранён');
+            }
+
+            $data['photo_path'] = $request->photo->hashName();
+        }
+
+        
+
+        $result = $review->update($data);
+
+        dd($request->photo_path);
+
+        if ($result) {
+            return redirect()
+                ->route('blog.admin.categories.edit', $review->id)
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Ошибка сохранения"])
+                ->withInput();
+        }
+        
+
+
     }
 
     /**
