@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class LandingReviewAdminController extends Controller
 {
-    
+
     private $landingReviewRepository;
     private $landingFeedbackSubjectRepository;
 
@@ -38,7 +38,10 @@ class LandingReviewAdminController extends Controller
      */
     public function create()
     {
-        //
+        $review = new LandingReview();
+        $subjects = $this->landingFeedbackSubjectRepository->getAllForSelect();
+
+        return view('admin.landing.reviews.create', compact('review', 'subjects'));
     }
 
     /**
@@ -86,7 +89,6 @@ class LandingReviewAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $review = LandingReview::find($id);
         if (empty($review)) {
             return back()
@@ -95,21 +97,22 @@ class LandingReviewAdminController extends Controller
         }
 
         $data = $request->all();
-        
-        if($request->photo){
-            $file = Storage::putFile('public/img/reviews', $request->photo);
-            if($file){
-                
-                Storage::delete('public/img/reviews/'.$review->photo_path);
 
+        if ($request->photo) {
+            $file = Storage::putFile('public/img/reviews', $request->photo);
+
+            if ($file) {
+                Storage::delete('public/img/reviews/' . $review->photo_path);
             } else {
-                echo('Файл не сохранён');
+                return back()
+                    ->withErrors(['msg' => "Ошибка сохранения файла"])
+                    ->withInput();
             }
 
             $data['photo_path'] = $request->photo->hashName();
         }
 
-        
+
 
         $result = $review->update($data);
 
@@ -122,9 +125,6 @@ class LandingReviewAdminController extends Controller
                 ->withErrors(['msg' => "Ошибка сохранения"])
                 ->withInput();
         }
-        
-
-
     }
 
     /**

@@ -15,12 +15,11 @@
                             @include('admin.landing.reviews.result_messages')
                             <div class="card shadow mb-4">
                                 <div class="card-header">
-                                    <h1 class="h3 mb-2 text-gray-800">Редактированние отзыва</h1>
+                                    <h1 class="h3 mb-2 text-gray-800">Создание отзыва</h1>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('admin.landing.reviews.update', $review->id) }}"
+                                    <form method="POST" action="{{ route('admin.landing.reviews.store') }}"
                                         enctype="multipart/form-data">
-                                        @method('PATCH')
                                         @csrf
                                         <div class="form__group mb-3">
                                             <label for="name" class="form-label">Имя</label>
@@ -39,8 +38,7 @@
                                             <select class="form-select" aria-label="Default select example"
                                                 name="subject_id">
                                                 @foreach ($subjects as $subject)
-                                                    <option value="{{ $subject->id }}"
-                                                        {{ $subject->id == $review->subject_id ? 'selected' : '' }}>
+                                                    <option value="{{ $subject->id }}">
                                                         {{ $subject->title }} </option>
                                                 @endforeach
                                             </select>
@@ -54,12 +52,6 @@
 
                                         <div class="form__group mb-3">
                                             <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="review__img">
-                                                        <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
-                                                            class="img-thumbnail" alt="...">
-                                                    </div>
-                                                </div>
                                                 <div class="col align-self-end">
                                                     <div class="review__file">
                                                         <label for="photo" class="form-label">Изменить
@@ -72,11 +64,10 @@
                                         </div>
 
                                         <div class="form__group mb-3">
-                                            <input class="form-check-input" type="checkbox" name="is_published"
-                                                value="" id="is_published"
-                                                {{ $review->is_published ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="checkbox" value="" id="is_published"
+                                                name="is_published">
                                             <label class="form-check-label" for="is_published">
-                                                Опубликовано
+                                                Опубликовать
                                             </label>
                                         </div>
                                         <div class="row justify-content-center">

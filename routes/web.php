@@ -35,7 +35,7 @@ Route::group($groupData, function () {
         ->names('admin.landing.feedbacks');
 
     //Отзывы
-    $reviews_methods = ['index', 'update','edit', 'create'];
+    $reviews_methods = ['index', 'update','edit', 'create', 'store'];
     Route::resource('/reviews', "LandingReviewAdminController")
         ->only($reviews_methods)
         ->names('admin.landing.reviews');
