@@ -28,7 +28,7 @@ class LandingReviewCreateRequest extends FormRequest
             'class'         => 'required|integer|min:1|max:11',
             'text'          => 'required|max:500',
             'subject_id'    => 'required|integer|exists:landing_feed_back_subjects,id',
-            'photo_path'    => '',
+            'photo'         => 'dimensions:min_width=100,min_height=100,ratio=1/1',
             'is_published'  => 'required|min:0|max:1',
         ];
     }
