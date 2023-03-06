@@ -195,7 +195,7 @@
     color: #FFFFFF;
 }
 
-.landing__feedback__form {}
+/* .landing__feedback__form {} */
 
 .landing__feedback__form__group {
     margin-bottom: 22px;
@@ -214,6 +214,10 @@
     line-height: 28px;
     
     color: #8B8B8B;
+}
+
+.landing__feedback__form__group .form-check-input{
+    margin: 3px;
 }
 
 .landing__feedback__form__btn {

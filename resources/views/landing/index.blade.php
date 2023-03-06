@@ -199,7 +199,8 @@
 
                                     <div class="form-group landing__feedback__form__group">
                                         <input name="name" value="{{ $feedBack->name }}" type="text"
-                                            id="name" class="form-control" minlength="3" placeholder="Ваше имя" required>
+                                            id="name" class="form-control" minlength="3" placeholder="Ваше имя"
+                                            required>
                                     </div>
 
                                     <div class="form-group landing__feedback__form__group">
@@ -243,18 +244,22 @@
                                             id="contacts" class="form-control" placeholder="Контакты для связи">
                                     </div>
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <select name="format_id" class="form-control" placeholder="Фора обучения"
-                                            id="format_id" required>
-                                            <option value="" selected disabled>Форма обучения
-                                            </option>
-                                            @foreach ($formatList as $formatList)
-                                                <option value="{{ $formatList->id }}">
-                                                    {{ $formatList->title }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group form-group landing__feedback__form__group">
+                                        <div class="form-control ">
+                                            <div class="row justify-content-between">
+                                                <div class="col-md-auto">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Очное обучение (СПб)
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-auto">
+                                                    <input class="form-check-input" name type="checkbox" name="format_id" value="1"
+                                                    id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div class="form-group landing__feedback__form__group">
                                         <button type="submit" class="landing__feedback__form__btn">Оставить
                                             заявку</button>
