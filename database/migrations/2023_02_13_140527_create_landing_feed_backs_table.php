@@ -23,7 +23,7 @@ return new class extends Migration
             
             $table->string('contacts');
 
-            $table->foreignId('format_id')->constrained('landing_feed_back_formats');
+            $table->foreignId('format_id')->default(2)->constrained('landing_feed_back_formats');
             $table->foreignId('status_id')->default(1)->constrained('landing_feed_back_statuses');
 
             $table->timestamps();

@@ -253,7 +253,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-auto">
-                                                    <input class="form-check-input" name type="checkbox" name="format_id" value="1"
+                                                    <input class="form-check-input" type="checkbox" name="format_id" value="1"
                                                     id="flexCheckDefault">
                                                 </div>
                                             </div>
