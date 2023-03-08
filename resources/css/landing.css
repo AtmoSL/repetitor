@@ -212,11 +212,11 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-    
+
     color: #8B8B8B;
 }
 
-.landing__feedback__form__group .form-check-input{
+.landing__feedback__form__group .form-check-input {
     margin: 3px;
 }
 
@@ -234,4 +234,15 @@
 
     color: #FFFFFF;
     padding: 16px;
+}
+
+.landing__feedback__form__disclamer {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+
+    color: rgba(255, 255, 255, 0.58);
+    padding-left: 38px;
 }

@@ -6,7 +6,7 @@
             <div class="row justify-content-between">
                 <div class="col">
                     <div class="landing__main__image">
-                        <img src="{{ asset('/storage/img/landing/main_screen_photo.png') }}" />
+                        <img src="{{ Vite::asset('resources/img/landing/main_screen_photo.png') }}" />
                     </div>
                 </div>
                 <div class="col">
@@ -29,7 +29,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col">
                     <div class="landing__text__photo">
-                        <img src="{{ asset('/storage/img/landing/photo.png') }}" alt="">
+                        <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col landing__text__text">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col">
                     <div class="landing__text__photo">
-                        <img src="{{ asset('/storage/img/landing/photo.png') }}" alt="">
+                        <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                         <div class="carousel-item landing__reviews__carousel__item active">
                             <div class="landing__reviews__carousel__item__inner row">
                                 <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ asset('/storage/img/landing/photo.png') }}" alt="">
+                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
                                 </div>
                                 <div class="landing__reviews__carousel__item__content col">
                                     <div class="landing__reviews__carousel__item__content__title">
@@ -114,7 +114,7 @@
                         <div class="carousel-item landing__reviews__carousel__item">
                             <div class="landing__reviews__carousel__item__inner row">
                                 <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ asset('/storage/img/landing/photo.png') }}" alt="">
+                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
                                 </div>
                                 <div class="landing__reviews__carousel__item__content col">
                                     <div class="landing__reviews__carousel__item__content__title">
@@ -138,7 +138,7 @@
                         <div class="carousel-item landing__reviews__carousel__item">
                             <div class="landing__reviews__carousel__item__inner row">
                                 <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ asset('/storage/img/landing/photo.png') }}" alt="">
+                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
                                 </div>
                                 <div class="landing__reviews__carousel__item__content col">
                                     <div class="landing__reviews__carousel__item__content__title">
@@ -264,13 +264,16 @@
                                         <button type="submit" class="landing__feedback__form__btn">Оставить
                                             заявку</button>
                                     </div>
+                                    <div class="landing__feedback__form__disclamer">
+                                        Оформляя заявку, вы принимаете оферту и политику обработки персональных данных
+                                    </div>
                                 </div>
                             </form>
 
                         </div>
                     </div>
                     <div class="col landing__feedback__img">
-                        <img src="{{ asset('/storage/img/landing/form__photo.png    ') }}" alt="">
+                        <img src="{{ Vite::asset('resources/img/landing/form__photo.png') }}" alt="">
                     </div>
                 </div>
             </div>
