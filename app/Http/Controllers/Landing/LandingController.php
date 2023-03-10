@@ -28,7 +28,6 @@ class LandingController extends BaseLadningController
      */
     public function index()
     {
-        
         $feedBack = new LandingFeedBack();
         $classList = LandingFeedBackClass::all();
         $subjectList = LandingFeedBackSubject::all();
