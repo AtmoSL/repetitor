@@ -65,111 +65,61 @@
 
 
     <section class="landing__reviews">
-        <div class="landing__reviews__title">
-            <h2>
-                Отзывы учеников
-            </h2>
-        </div>
+        <div class="container">
+            <div class="landing__reviews__title">
+                <h2>
+                    Отзывы учеников
+                </h2>
+            </div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-auto">
-                <div id="carouselExample" class="carousel slide landing__reviews__carousel" data-bs-ride="carousel">
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <div id="carouselExample" class="carousel slide landing__reviews__carousel" data-bs-ride="carousel">
 
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+
+
+                        <div class="carousel-inner">
+
+                            @foreach ($reviews as $key => $review)
+                                <div
+                                    class="carousel-item landing__reviews__carousel__item {{ $key == 0 ? 'active' : '' }} ">
+                                    <div class="landing__reviews__carousel__item__inner row">
+                                        <div class="landing__reviews__carousel__item__img col-md-auto">
+                                            <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
+                                                alt="">
+                                        </div>
+                                        <div class="landing__reviews__carousel__item__content col">
+                                            <div class="landing__reviews__carousel__item__content__title">
+                                                {{ $review->name }}<span>, {{ $review->class }}</span>
+                                            </div>
+                                            <div class="landing__reviews__carousel__item__content__text">
+                                                {{ $review->text }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
+                        </button>
                     </div>
-
-
-                    <div class="carousel-inner">
-
-                        <div class="carousel-item landing__reviews__carousel__item active">
-                            <div class="landing__reviews__carousel__item__inner row">
-                                <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
-                                </div>
-                                <div class="landing__reviews__carousel__item__content col">
-                                    <div class="landing__reviews__carousel__item__content__title">
-                                        Алиса<span>, 11Б</span>
-                                    </div>
-                                    <div class="landing__reviews__carousel__item__content__text">
-                                        У Марка аутизм. Обучать подростка с такими особенностями нелегко. Восхищает
-                                        находчивость
-                                        и профессионализм нашего преподавателя Виктора Кириенко. Вместе с Марком они
-                                        добиваются
-                                        удивительных результатов! Огромная благодарность Виктору за уроки и за богатый
-                                        исчерпывающий фидбэк по окончании модуля джуниор. Благодарю платформу *** за
-                                        возможность
-                                        заниматься предметом в формате онлайн, который прекрасно подходит для моего сына! С
-                                        нетерпением ждем дальнейших занятий.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item landing__reviews__carousel__item">
-                            <div class="landing__reviews__carousel__item__inner row">
-                                <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
-                                </div>
-                                <div class="landing__reviews__carousel__item__content col">
-                                    <div class="landing__reviews__carousel__item__content__title">
-                                        Алиса<span>, 11Б</span>
-                                    </div>
-                                    <div class="landing__reviews__carousel__item__content__text">
-                                        У Марка аутизм. Обучать подростка с такими особенностями нелегко. Восхищает
-                                        находчивость
-                                        и профессионализм нашего преподавателя Виктора Кириенко. Вместе с Марком они
-                                        добиваются
-                                        удивительных результатов! Огромная благодарность Виктору за уроки и за богатый
-                                        исчерпывающий фидбэк по окончании модуля джуниор. Благодарю платформу *** за
-                                        возможность
-                                        заниматься предметом в формате онлайн, который прекрасно подходит для моего сына! С
-                                        нетерпением ждем дальнейших занятий.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item landing__reviews__carousel__item">
-                            <div class="landing__reviews__carousel__item__inner row">
-                                <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ Vite::asset('resources/img/landing/photo.png') }}" alt="">
-                                </div>
-                                <div class="landing__reviews__carousel__item__content col">
-                                    <div class="landing__reviews__carousel__item__content__title">
-                                        Алиса<span>, 11Б</span>
-                                    </div>
-                                    <div class="landing__reviews__carousel__item__content__text">
-                                        У Марка аутизм. Обучать подростка с такими особенностями нелегко. Восхищает
-                                        находчивость
-                                        и профессионализм нашего преподавателя Виктора Кириенко. Вместе с Марком они
-                                        добиваются
-                                        удивительных результатов! Огромная благодарность Виктору за уроки и за богатый
-                                        исчерпывающий фидбэк по окончании модуля джуниор. Благодарю платформу *** за
-                                        возможность
-                                        заниматься предметом в формате онлайн, который прекрасно подходит для моего сына! С
-                                        нетерпением ждем дальнейших занятий.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Предыдущий</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Следующий</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -198,9 +148,8 @@
                                     @include('landing.result_messages')
 
                                     <div class="form-group landing__feedback__form__group">
-                                        <input name="name" value="{{ $feedBack->name }}" type="text"
-                                            id="name" class="form-control" minlength="3" placeholder="Ваше имя"
-                                            required>
+                                        <input name="name" value="{{ $feedBack->name }}" type="text" id="name"
+                                            class="form-control" minlength="3" placeholder="Ваше имя" required>
                                     </div>
 
                                     <div class="form-group landing__feedback__form__group">
@@ -253,8 +202,8 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-auto">
-                                                    <input class="form-check-input" type="checkbox" name="format_id" value="1"
-                                                    id="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" name="format_id"
+                                                        value="1" id="flexCheckDefault">
                                                 </div>
                                             </div>
                                         </div>
