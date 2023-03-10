@@ -77,12 +77,10 @@
                     <div id="carouselExample" class="carousel slide landing__reviews__carousel" data-bs-ride="carousel">
 
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+                            @for ($i = 0; $i < count($reviews); $i++)
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}"
+                            class="{{($i==1)? 'active' : ''}}" aria-current="true" aria-label="Slide {{$i + 1}}"></button>
+                            @endfor
                         </div>
 
 
@@ -90,7 +88,7 @@
 
                             @foreach ($reviews as $key => $review)
                                 <div
-                                    class="carousel-item landing__reviews__carousel__item {{ $key == 0 ? 'active' : '' }} ">
+                                    class="carousel-item {{ $key == 0 ? 'active' : '' }} ">
                                     <div class="landing__reviews__carousel__item__inner row">
                                         <div class="landing__reviews__carousel__item__img col-md-auto">
                                             <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
