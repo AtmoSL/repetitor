@@ -21,7 +21,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/landing.css', 'resources/sass/app.scss', 'resources/js/app.js'])
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/landing.css') }}" />
 </head>
 
 <body>
