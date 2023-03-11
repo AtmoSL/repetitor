@@ -79,6 +79,7 @@
 .landing__reviews {
     background-color: #E1E1E1;
     padding-top: 92px;
+    padding-bottom: 207px;
 }
 
 .landing__reviews__title {
@@ -95,21 +96,16 @@
     color: #1E1E1E;
 }
 
-.landing__reviews__carousel .carousel-inner {
-    text-align: center;
-    width: 1018px;
-    margin-bottom: 207px;
-}
-
-.landing__reviews__carousel .carousel-item {
-    margin: auto;
-    height: 583px;
+.landing__reviews__carousel__item__inner{
     border-radius: 60px;
     background-color: #fff;
+    width: 1018px;
+    height: 583px;
     padding-top: 72px;
     padding-bottom: 113px;
     padding-left: 25px;
     padding-right: 37px;
+    margin: auto;
 }
 
 .landing__reviews__carousel .carousel-indicators {

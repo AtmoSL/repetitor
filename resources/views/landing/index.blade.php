@@ -71,54 +71,47 @@
                     Отзывы учеников
                 </h2>
             </div>
+            <div id="carouselExample" class="carousel carousel-dark slide landing__reviews__carousel" data-bs-ride="carousel">
 
-            <div class="row justify-content-center">
-                <div class="col-md-auto">
-                    <div id="carouselExample" class="carousel slide landing__reviews__carousel" data-bs-ride="carousel">
-
-                        <div class="carousel-indicators">
-                            @for ($i = 0; $i < count($reviews); $i++)
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}"
-                            class="{{($i==1)? 'active' : ''}}" aria-current="true" aria-label="Slide {{$i + 1}}"></button>
-                            @endfor
-                        </div>
+                <div class="carousel-indicators">
+                    @for ($i = 0; $i < count($reviews); $i++)
+                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="{{ $i }}" class="{{ $i == 1 ? 'active' : '' }}" aria-current="true"
+                            aria-label="Slide {{ $i + 1 }}"></button>
+                    @endfor
+                </div>
 
 
-                        <div class="carousel-inner">
+                <div class="carousel-inner">
 
-                            @foreach ($reviews as $key => $review)
-                                <div
-                                    class="carousel-item {{ $key == 0 ? 'active' : '' }} ">
-                                    <div class="landing__reviews__carousel__item__inner row">
-                                        <div class="landing__reviews__carousel__item__img col-md-auto">
-                                            <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
-                                                alt="">
-                                        </div>
-                                        <div class="landing__reviews__carousel__item__content col">
-                                            <div class="landing__reviews__carousel__item__content__title">
-                                                {{ $review->name }}<span>, {{ $review->class }}</span>
-                                            </div>
-                                            <div class="landing__reviews__carousel__item__content__text">
-                                                {{ $review->text }}
-                                            </div>
-                                        </div>
+                    @foreach ($reviews as $key => $review)
+                        <div class="carousel-item landing__reviews__carousel__item {{ $key == 0 ? 'active' : '' }} ">
+                            <div class="landing__reviews__carousel__item__inner">
+                                <div class="row">
+                                <div class="landing__reviews__carousel__item__img col-md-auto">
+                                    <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}" alt="">
+                                </div>
+                                <div class="landing__reviews__carousel__item__content col">
+                                    <div class="landing__reviews__carousel__item__content__title">
+                                        {{ $review->name }}<span>, {{ $review->class }}</span>
+                                    </div>
+                                    <div class="landing__reviews__carousel__item__content__text">
+                                        {{ $review->text }}
                                     </div>
                                 </div>
-                            @endforeach
 
+                                </div>
+                            </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Предыдущий</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Следующий</span>
-                        </button>
-                    </div>
+                    @endforeach
+
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="visually-hidden">Следующий</span>
+                </button>
             </div>
         </div>
     </section>
@@ -163,8 +156,8 @@
                                     </div>
 
                                     <div class="form-group landing__feedback__form__group">
-                                        <select name="subject_id" class="form-control" placeholder="Предет"
-                                            id="subject_id" required>
+                                        <select name="subject_id" class="form-control" placeholder="Предет" id="subject_id"
+                                            required>
                                             <option value="" selected disabled>Предмет</option>
                                             @foreach ($subjectList as $subjectOption)
                                                 <option value="{{ $subjectOption->id }}">
