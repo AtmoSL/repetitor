@@ -187,7 +187,7 @@
     margin: 260px auto 218px auto;
     padding: 52px 45px 17px 46px;
     border-radius: 28px;
-    max-width: 1050px;
+    max-width: 998px;
 }
 
 .landing__feedback__content {
@@ -217,13 +217,13 @@
 }
 
 .landing__feedback__form__group {
-    margin-bottom: 22px;
+    margin-bottom: 19px;
 }
 
 .landing__feedback__form__group .form-control {
     background: #FFFFFF;
     border-radius: 28px;
-    height: 57px;
+    height: 49px;
     padding: 13px 33px 13px 33px;
 
     font-family: 'Roboto', sans-serif;
@@ -248,13 +248,14 @@
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
-    line-height: 38px;
+    font-size: 30px;
+    line-height: 35px;
 
     color: #FFFFFF;
-    padding: 16px;
+    padding: 13px;
 }
-.landing__feedback__img{
+
+.landing__feedback__img img{
     width: 405px;
     height: 650px;
 }
@@ -264,8 +265,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
-    line-height: 21px;
+    line-height: 20px;
 
     color: rgba(255, 255, 255, 0.58);
-    padding-left: 38px;
 }
