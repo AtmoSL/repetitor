@@ -95,11 +95,17 @@
                                     <div class="landing__reviews__carousel__item__content__title">
                                         {{ $review->name }}<span>, {{ $review->class }}</span>
                                     </div>
-                                    <div class="landing__reviews__carousel__item__content__text">
-                                        {{ $review->text }}
+                                    <div class="landing__reviews__carousel__item__content__subject">
+                                        математика
                                     </div>
+                                    <div class="landing__reviews__carousel__item__content__text">{{$review->text}}</div>
+                                
                                 </div>
-
+                                <div class="landing__reviews__carousel__item__content__social col-md-auto">
+                                    <a href="#" class="">
+                                    <img src="{{ Vite::asset('resources/img/landing/VK.svg') }}" alt="">
+                                    </a>
+                                </div>
                                 </div>
                             </div>
                         </div>
