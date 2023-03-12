@@ -224,13 +224,14 @@
     background: #FFFFFF;
     border-radius: 28px;
     height: 49px;
-    padding: 13px 33px 13px 33px;
+    padding: 11px 18px;
 
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
+
+    font-size: 22px;
+    line-height: 26px;
 
     color: #8B8B8B;
 }
@@ -255,7 +256,7 @@
     padding: 13px;
 }
 
-.landing__feedback__img img{
+.landing__feedback__img img {
     width: 405px;
     height: 650px;
 }
