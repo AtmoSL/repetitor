@@ -159,6 +159,8 @@
     font-size: 21px;
     line-height: 25px;
 
+    text-transform: lowercase;
+
     color: #1E1E1E;
     margin-bottom: 11px;
     margin-top: -5px;

@@ -96,7 +96,7 @@
                                         {{ $review->name }}<span>, {{ $review->class }}</span>
                                     </div>
                                     <div class="landing__reviews__carousel__item__content__subject">
-                                        математика
+                                        {{$review->subject->title}}
                                     </div>
                                     <div class="landing__reviews__carousel__item__content__text">{{$review->text}}</div>
                                 
