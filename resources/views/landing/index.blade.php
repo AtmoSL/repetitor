@@ -71,7 +71,7 @@
                     Отзывы учеников
                 </h2>
             </div>
-            <div id="carouselExample" class="carousel carousel-dark slide landing__reviews__carousel" data-bs-ride="carousel">
+            <div id="carouselExample" class="carousel slide landing__reviews__carousel" data-bs-ride="carousel">
 
                 <div class="carousel-indicators">
                     @for ($i = 0; $i < count($reviews); $i++)
