@@ -88,24 +88,26 @@
                         <div class="carousel-item landing__reviews__carousel__item {{ $key == 0 ? 'active' : '' }} ">
                             <div class="landing__reviews__carousel__item__inner">
                                 <div class="row">
-                                <div class="landing__reviews__carousel__item__img col-md-auto">
-                                    <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}" alt="">
-                                </div>
-                                <div class="landing__reviews__carousel__item__content col">
-                                    <div class="landing__reviews__carousel__item__content__title">
-                                        {{ $review->name }}<span>, {{ $review->class }}</span>
+                                    <div class="landing__reviews__carousel__item__img col-md-auto">
+                                        <img src="{{ asset('/storage/img/reviews/' . $review->photo_path) }}"
+                                            alt="">
                                     </div>
-                                    <div class="landing__reviews__carousel__item__content__subject">
-                                        {{$review->subject->title}}
+                                    <div class="landing__reviews__carousel__item__content col">
+                                        <div class="landing__reviews__carousel__item__content__title">
+                                            {{ $review->name }}<span>, {{ $review->class }}</span>
+                                        </div>
+                                        <div class="landing__reviews__carousel__item__content__subject">
+                                            {{ $review->subject->title }}
+                                        </div>
+                                        <div class="landing__reviews__carousel__item__content__text">{{ $review->text }}
+                                        </div>
+
                                     </div>
-                                    <div class="landing__reviews__carousel__item__content__text">{{$review->text}}</div>
-                                
-                                </div>
-                                <div class="landing__reviews__carousel__item__content__social col-md-auto">
-                                    <a href="#" class="">
-                                    <img src="{{ Vite::asset('resources/img/landing/VK.svg') }}" alt="">
-                                    </a>
-                                </div>
+                                    <div class="landing__reviews__carousel__item__content__social col-md-auto">
+                                        <a href="#" class="">
+                                            <img src="{{ Vite::asset('resources/img/landing/VK.svg') }}" alt="">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,100 +127,104 @@
     <section class="landing__feedback">
         <div class="container">
             <div class="landing__feedback__inner">
-                <div class="row">
-                    <div class=" col landing__feedback__content">
-                        <div class="landing__feedback__inner__title">
-                            <h3 id="feedback">
-                                Запишись сейчас
-                            </h3>
-                        </div>
-                        <div class="landing__feedback__inner__subtitle">
-                            <p>
-                                Оставь данные и я обязательно с тобой свяжусь
-                            </p>
-                        </div>
-                        <div class="landing__feedback__form">
+                <div class="row justify-content-between">
+                    <div class="col-md-auto">
+                        <div class="landing__feedback__content">
 
-                            <form method="POST" action="{{ route('store') }}">
-                                @csrf
-                                <div class="container">
-                                    @include('landing.result_messages')
+                            <div class="landing__feedback__inner__title">
+                                <h3 id="feedback">
+                                    Запишись сейчас
+                                </h3>
+                            </div>
+                            <div class="landing__feedback__inner__subtitle">
+                                <p>
+                                    Оставь данные и я обязательно с тобой свяжусь
+                                </p>
+                            </div>
+                            <div class="landing__feedback__form">
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <input name="name" value="{{ $feedBack->name }}" type="text" id="name"
-                                            class="form-control" minlength="3" placeholder="Ваше имя" required>
-                                    </div>
+                                <form method="POST" action="{{ route('store') }}">
+                                    @csrf
+                                    <div class="container">
+                                        @include('landing.result_messages')
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <select name="class_id" class="form-control" placeholder="Класс" id="class_id"
-                                            required>
-                                            <option value="" selected disabled>Класс</option>
-                                            @foreach ($classList as $classOption)
-                                                <option value="{{ $classOption->id }}">
-                                                    {{ $classOption->title }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <div class="form-group landing__feedback__form__group">
+                                            <input name="name" value="{{ $feedBack->name }}" type="text"
+                                                id="name" class="form-control" minlength="3" placeholder="Ваше имя"
+                                                required>
+                                        </div>
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <select name="subject_id" class="form-control" placeholder="Предет" id="subject_id"
-                                            required>
-                                            <option value="" selected disabled>Предмет</option>
-                                            @foreach ($subjectList as $subjectOption)
-                                                <option value="{{ $subjectOption->id }}">
-                                                    {{ $subjectOption->title }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <div class="form-group landing__feedback__form__group">
+                                            <select name="class_id" class="form-control" placeholder="Класс" id="class_id"
+                                                required>
+                                                <option value="" selected disabled>Класс</option>
+                                                @foreach ($classList as $classOption)
+                                                    <option value="{{ $classOption->id }}">
+                                                        {{ $classOption->title }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <select name="target_id" class="form-control" placeholder="Цель" id="target_id"
-                                            required>
-                                            <option value="" selected disabled>Цель</option>
-                                            @foreach ($targetList as $targetOption)
-                                                <option value="{{ $targetOption->id }}">
-                                                    {{ $targetOption->title }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <div class="form-group landing__feedback__form__group">
+                                            <select name="subject_id" class="form-control" placeholder="Предет"
+                                                id="subject_id" required>
+                                                <option value="" selected disabled>Предмет</option>
+                                                @foreach ($subjectList as $subjectOption)
+                                                    <option value="{{ $subjectOption->id }}">
+                                                        {{ $subjectOption->title }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <input name="contacts" value="{{ $feedBack->contacts }}" type="text"
-                                            id="contacts" class="form-control" placeholder="Контакты для связи">
-                                    </div>
+                                        <div class="form-group landing__feedback__form__group">
+                                            <select name="target_id" class="form-control" placeholder="Цель"
+                                                id="target_id" required>
+                                                <option value="" selected disabled>Цель</option>
+                                                @foreach ($targetList as $targetOption)
+                                                    <option value="{{ $targetOption->id }}">
+                                                        {{ $targetOption->title }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group form-group landing__feedback__form__group">
-                                        <div class="form-control ">
-                                            <div class="row justify-content-between">
-                                                <div class="col-md-auto">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Очное обучение (СПб)
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-auto">
-                                                    <input class="form-check-input" type="checkbox" name="format_id"
-                                                        value="1" id="flexCheckDefault">
+                                        <div class="form-group landing__feedback__form__group">
+                                            <input name="contacts" value="{{ $feedBack->contacts }}" type="text"
+                                                id="contacts" class="form-control" placeholder="Контакты для связи">
+                                        </div>
+
+                                        <div class="form-group form-group landing__feedback__form__group">
+                                            <div class="form-control ">
+                                                <div class="row justify-content-between">
+                                                    <div class="col-md-auto">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Очное обучение (СПб)
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-auto">
+                                                        <input class="form-check-input" type="checkbox" name="format_id"
+                                                            value="1" id="flexCheckDefault">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group landing__feedback__form__group">
-                                        <button type="submit" class="landing__feedback__form__btn">Оставить
-                                            заявку</button>
+                                        <div class="form-group landing__feedback__form__group">
+                                            <button type="submit" class="landing__feedback__form__btn">Оставить
+                                                заявку</button>
+                                        </div>
+                                        <div class="landing__feedback__form__disclamer">
+                                            Оформляя заявку, вы принимаете оферту и политику обработки персональных данных
+                                        </div>
                                     </div>
-                                    <div class="landing__feedback__form__disclamer">
-                                        Оформляя заявку, вы принимаете оферту и политику обработки персональных данных
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
 
+                            </div>
                         </div>
                     </div>
-                    <div class="col landing__feedback__img">
+                    <div class="col-md-auto landing__feedback__img">
                         <img src="{{ Vite::asset('resources/img/landing/form__photo.png') }}" alt="">
                     </div>
                 </div>

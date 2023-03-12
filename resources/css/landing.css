@@ -184,19 +184,26 @@
 
 .landing__feedback__inner {
     background-color: #2C67FF;
-    margin: 260px 30px 218px 30px;
-    padding: 60px 52px 35px 54px;
+    margin: 260px auto 218px auto;
+    padding: 52px 45px 17px 46px;
     border-radius: 28px;
+    max-width: 1050px;
+}
+
+.landing__feedback__content {
+    max-width: 457px;
 }
 
 .landing__feedback__inner__title h3 {
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 800;
-    font-size: 60px;
-    line-height: 70px;
+    font-size: 53px;
+    line-height: 62px;
 
     color: #FFFFFF;
+
+    margin-bottom: 19px;
 }
 
 .landing__feedback__inner__subtitle p {
@@ -208,8 +215,6 @@
 
     color: #FFFFFF;
 }
-
-/* .landing__feedback__form {} */
 
 .landing__feedback__form__group {
     margin-bottom: 22px;
@@ -248,6 +253,10 @@
 
     color: #FFFFFF;
     padding: 16px;
+}
+.landing__feedback__img{
+    width: 405px;
+    height: 650px;
 }
 
 .landing__feedback__form__disclamer {
